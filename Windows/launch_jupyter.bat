@@ -2,29 +2,30 @@
 setlocal
 
 REM CPU-only torch. For an NVIDIA GPU use launch_jupyter_cuda.bat instead.
-set "TORCH_EXTRA=cpu"
+set "PIXI_ENV=default"
 set "TARGET_DIR=%USERPROFILE%\Desktop\jupyter-env"
-
 set "GIT_SOURCE=https://github.com/cwood1967/jupyter-env.git"
-set "UV_CACHE_DIR=C:\pixi-cache\uv-cache"
 
-if not exist "%UV_CACHE_DIR%" mkdir "%UV_CACHE_DIR%"
+REM Detached envs go in the user's home (C:\Users\<user>\pixi-envs), not the
+REM Desktop checkout. The package cache still follows PIXI_CACHE_DIR if set.
 
-set "UV_EXE=uv"
-where uv >nul 2>nul
+set "PIXI_EXE=pixi"
+where pixi >nul 2>nul
 if errorlevel 1 (
-    echo uv not found - installing...
-    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-    set "UV_EXE=%USERPROFILE%\.local\bin\uv.exe"
+    set "PIXI_EXE=%USERPROFILE%\.pixi\bin\pixi.exe"
 )
-if not "%UV_EXE%"=="uv" if not exist "%UV_EXE%" (
-    echo Failed to install uv. Install it manually from https://astral.sh/uv, then re-run this file.
+if not "%PIXI_EXE%"=="pixi" if not exist "%PIXI_EXE%" (
+    echo pixi not found - installing...
+    powershell -ExecutionPolicy ByPass -c "irm -useb https://pixi.sh/install.ps1 | iex"
+)
+if not "%PIXI_EXE%"=="pixi" if not exist "%PIXI_EXE%" (
+    echo Failed to install pixi. Install it manually from https://pixi.sh, then re-run this file.
     pause
     exit /b 1
 )
 
 if exist "%TARGET_DIR%\.git" (
-    echo Updating existing uv_env checkout...
+    echo Updating existing jupyter-env checkout...
     git -C "%TARGET_DIR%" fetch origin && git -C "%TARGET_DIR%" reset --hard origin/main
 ) else (
     if exist "%TARGET_DIR%" (
@@ -37,7 +38,6 @@ if exist "%TARGET_DIR%\.git" (
 set "NB_DIR=%~1"
 if "%NB_DIR%"=="" (
     for /f "delims=" %%F in ('powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.OpenFileDialog; $f.ValidateNames = $false; $f.CheckFileExists = $false; $f.CheckPathExists = $true; $f.FileName = 'Select this folder'; $f.Title = 'Choose a folder to open in Jupyter'; if ($f.ShowDialog() -eq 'OK') { Split-Path $f.FileName }"') do set "NB_DIR=%%F"
-
 )
 if "%NB_DIR%"=="" (
     echo No folder selected.
@@ -45,14 +45,15 @@ if "%NB_DIR%"=="" (
     exit /b 1
 )
 
-
 cd /d "%TARGET_DIR%"
-echo Installing the %TORCH_EXTRA% environment...
-"%UV_EXE%" sync --extra %TORCH_EXTRA%
+REM Stored in .pixi\config.toml, which git reset leaves alone.
+"%PIXI_EXE%" config set --local detached-environments "%USERPROFILE%\pixi-envs"
+echo Installing the %PIXI_ENV% environment...
+REM --frozen: install exactly what pixi.lock pins, without re-solving.
+"%PIXI_EXE%" install --frozen -e %PIXI_ENV%
 if errorlevel 1 (
     echo Environment install failed.
     pause
     exit /b 1
 )
-REM --no-sync: uv run would otherwise re-sync without the extra and swap out torch.
-"%UV_EXE%" run --no-sync jupyter lab --notebook-dir="%NB_DIR%"
+"%PIXI_EXE%" run --frozen -e %PIXI_ENV% jupyter lab --notebook-dir="%NB_DIR%"

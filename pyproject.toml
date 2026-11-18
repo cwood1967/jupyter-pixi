@@ -1,23 +1,22 @@
 [project]
 name = "jupyter-env"
 version = "0.1.0"
-description = "Add your description here"
+description = "Jupyter + napari image-analysis environment"
 readme = "README.md"
 requires-python = ">=3.12"
+# Git-sourced packages (cropper, dinov3, napari-vsi, video-array) and torch are
+# declared under [tool.pixi.*] below, since their sources are pixi-specific.
 dependencies = [
     "av>=18.1.0",
     "bioio>=3.5.0",
     "bioio-czi>=2.9.1",
     "cellpose>=4.2.1.1",
-    "cropper",
-    "dinov3",
     "jupyterlab>=4.6.3",
     "kaleido>=1.4.0",
     "napari-animation>=0.0.10",
     "napari-czitools>=0.12.4",
     "napari-nikon-nd2",
     "napari-tiff>=0.1.6",
-    "napari-vsi",
     "napari[all]>=0.9.1",
     "pandas>=3.0.5",
     "plotly>=7.0.0",
@@ -29,52 +28,57 @@ dependencies = [
     "sympy>=1.14.0",
     "trackpy>=0.7",
     "umap-learn>=0.5.12",
-    "video-array",
 ]
 
-# torch/torchvision live in extras rather than base deps so a launcher can pick
-# the build: `uv sync --extra cpu` or `uv sync --extra cu130`. Selecting neither
-# resolves torch from PyPI (cellpose pulls it in transitively regardless).
-[project.optional-dependencies]
-cpu = [
-    "torch>=2.12.0",
-    "torchvision>=0.27.0",
-]
-cu130 = [
-    "torch>=2.12.0",
-    "torchvision>=0.27.0",
-]
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "win-64"]
 
-[tool.uv]
-# These extras can never be installed together. Declaring the conflict lets uv
-# lock a separate resolution for each instead of erroring on the two torch
-# indexes, so one uv.lock serves both the CPU and CUDA launchers.
-conflicts = [
-    [{ extra = "cpu" }, { extra = "cu130" }],
-]
+# Only the interpreter comes from conda-forge; everything else is resolved from
+# PyPI (via uv inside pixi) to match the previous uv environment.
+# torch only ships macosx_14_0_arm64 wheels.
+[tool.pixi.system-requirements]
+macos = "14.0"
 
-[tool.uv.sources]
-napari-vsi = { git = "https://github.com/cwood1967/napari-vsi.git" }
+[tool.pixi.dependencies]
+python = "<3.14"
+
+[tool.pixi.pypi-dependencies]
 cropper = { git = "https://github.com/cwood1967/napari-cropper.git" }
-# The pytorch cpu index has no macOS wheels; let Darwin fall through to PyPI,
-# which already ships the correct arm64 (MPS-enabled) build.
-torch = [
-    { index = "pytorch-cpu", extra = "cpu", marker = "sys_platform != 'darwin'" },
-    { index = "pytorch-cu130", extra = "cu130" },
-]
-torchvision = [
-    { index = "pytorch-cpu", extra = "cpu", marker = "sys_platform != 'darwin'" },
-    { index = "pytorch-cu130", extra = "cu130" },
-]
 dinov3 = { git = "https://github.com/facebookresearch/dinov3" }
+napari-vsi = { git = "https://github.com/cwood1967/napari-vsi.git" }
 video-array = { git = "https://github.com/cwood1967/video_array.git" }
 
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
+# --- torch flavors ---------------------------------------------------------
+# CPU: pytorch's cpu index on Linux/Windows. It has no macOS wheels, so
+# osx-arm64 takes the PyPI build (arm64/MPS-enabled).
+[tool.pixi.feature.cpu.target.linux-64.pypi-dependencies]
+torch = { version = ">=2.12.0", index = "https://download.pytorch.org/whl/cpu" }
+torchvision = { version = ">=0.27.0", index = "https://download.pytorch.org/whl/cpu" }
 
-[[tool.uv.index]]
-name = "pytorch-cu130"
-url = "https://download.pytorch.org/whl/cu130"
-explicit = true
+[tool.pixi.feature.cpu.target.win-64.pypi-dependencies]
+torch = { version = ">=2.12.0", index = "https://download.pytorch.org/whl/cpu" }
+torchvision = { version = ">=0.27.0", index = "https://download.pytorch.org/whl/cpu" }
+
+[tool.pixi.feature.cpu.target.osx-arm64.pypi-dependencies]
+torch = ">=2.12.0"
+torchvision = ">=0.27.0"
+
+# CUDA 13.0 wheels; NVIDIA platforms only.
+[tool.pixi.feature.cuda]
+platforms = ["linux-64", "win-64"]
+system-requirements = { cuda = "13" }
+
+[tool.pixi.feature.cuda.pypi-dependencies]
+torch = { version = ">=2.12.0", index = "https://download.pytorch.org/whl/cu130" }
+torchvision = { version = ">=0.27.0", index = "https://download.pytorch.org/whl/cu130" }
+
+# `default` is CPU; use `-e cuda` for the GPU build. Each is a separate
+# (detached) environment, so switching never reinstalls torch.
+[tool.pixi.environments]
+default = ["cpu"]
+cuda = ["cuda"]
+
+[tool.pixi.tasks]
+lab = "jupyter lab"
+napari = "napari"

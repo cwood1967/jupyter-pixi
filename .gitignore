@@ -6,5 +6,7 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
+# pixi: envs are detached (live outside the repo); keep only local config
+.pixi/*
+!.pixi/config.toml
 .venv
