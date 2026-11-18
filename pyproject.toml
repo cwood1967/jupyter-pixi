@@ -36,9 +36,10 @@ platforms = ["linux-64", "osx-arm64", "win-64"]
 
 # Only the interpreter comes from conda-forge; everything else is resolved from
 # PyPI (via uv inside pixi) to match the previous uv environment.
-# torch only ships macosx_14_0_arm64 wheels.
+# Macs must run macOS 15 (Sequoia) or later; some wheels (e.g. opencv 5.1+)
+# only ship macosx_15 builds, and a lower floor makes uv build them from source.
 [tool.pixi.system-requirements]
-macos = "14.0"
+macos = "15.0"
 
 [tool.pixi.dependencies]
 python = "<3.14"

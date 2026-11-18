@@ -942,7 +942,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/d4/aa/cb1f085772272955b2333649ca3a18cdd8f9b4bd598d6cbddceb8dfbec4a/czifile-2026.11.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/1d/a9/20dca83002897c140ca61da2a030cf7acb0a836b0bac0a89813958a1e50c/czitools-0.27.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/f8/3a/4fc99e788bcfa1b3b3f21abf57da45898d807d007e7f6fd1c7300904eb70/dask-2026.8.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/56/3d/c7dc9f35bc9e22cdb53679f844bee40fd5cff871862f60595869a433400d/debugpy-1.8.22-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/6b/f4/fee6d40f5865aa84e1100c9df1a0f2cf8991776b61f11f433ff277df4415/debugpy-1.8.22-cp313-cp313-macosx_15_0_universal2.whl
       - pypi: https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl
       - pypi: git+https://github.com/facebookresearch/dinov3#6876159a11b4df116f30f667f8c9888617df0751
       - pypi: https://files.pythonhosted.org/packages/28/d4/017e2d39d797eaa38a52b4459c8bea875d5e0ada335a62aafe98193041a6/distributed-2026.8.0-py3-none-any.whl
@@ -1047,7 +1047,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/03/bd/a1a721ab8da5632c811caf56b7735646a440eddbbf6e57817ae1a900c9c9/numpy-2.5.5-cp313-cp313-macosx_14_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/70/b0/c9df0b9cbf3bd36480c10693fe532b109f2c1d1cafaa4633dbbba5e68588/ome_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4f/bd/0d9f8247b0819385213d09564eda5c52d3673313c2414d51f72883ec24cd/omegaconf-2.4.0-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/6b/51/33b8c7255f3bdd920d6238aa478faf1e2136d5a51f17d826c13902ca7195/opencv_python_headless-5.1.0.95.tar.gz
+      - pypi: https://files.pythonhosted.org/packages/a7/76/95bb6ecdb317bf839fc653d26055df7355b9290876ffebc0a8a68f0c8740/opencv_python_headless-5.1.0.95-cp37-abi3-macosx_15_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/95/c0/6f818fd16987eba5ad77fcf8ba8a19e9cf19fad7df7f38ed61b933196d97/pandas-3.1.1-cp313-cp313-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/ef/af/4fbc8cab944db5d21b7e2a5b8e9211a03a79852b1157e2c102fcc61ac440/pandocfilters-1.5.1-py2.py3-none-any.whl
@@ -2503,6 +2503,11 @@ packages:
   name: debugpy
   version: 1.8.22
   sha256: a9e9d3550e15ca479c59333e90845029190531f0cacfedab3b815a57bd913947
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/6b/f4/fee6d40f5865aa84e1100c9df1a0f2cf8991776b61f11f433ff277df4415/debugpy-1.8.22-cp313-cp313-macosx_15_0_universal2.whl
+  name: debugpy
+  version: 1.8.22
+  sha256: c21dd7e1ec22556bb41dc3bf6b86c603e440ec889c4acb27d7206354b2106c54
   requires_python: '>=3.10'
 - pypi: https://files.pythonhosted.org/packages/d0/f5/c2b3e8260388d7b76bc4e5a3a29648a0ca47dca6a2721d6549ff2d944eee/debugpy-1.8.22-cp313-cp313-win_amd64.whl
   name: debugpy
@@ -5221,10 +5226,10 @@ packages:
   - numpy<2.0 ; python_full_version < '3.9'
   - numpy>=2 ; python_full_version >= '3.9'
   requires_python: '>=3.6'
-- pypi: https://files.pythonhosted.org/packages/6b/51/33b8c7255f3bdd920d6238aa478faf1e2136d5a51f17d826c13902ca7195/opencv_python_headless-5.1.0.95.tar.gz
+- pypi: https://files.pythonhosted.org/packages/a7/76/95bb6ecdb317bf839fc653d26055df7355b9290876ffebc0a8a68f0c8740/opencv_python_headless-5.1.0.95-cp37-abi3-macosx_15_0_arm64.whl
   name: opencv-python-headless
   version: 5.1.0.95
-  sha256: 9002add14b121b9a0d64dcaff48e5cac69a7987efcf2847f7db075c2d3b9633b
+  sha256: 512f5c704eeedd0c550cf2daca42e4312f6d30bb047680f1563c661eb9ee7e82
   requires_dist:
   - numpy<2.0 ; python_full_version < '3.9'
   - numpy>=2 ; python_full_version >= '3.9'
