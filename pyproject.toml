@@ -27,7 +27,7 @@ dependencies = [
     "statsmodels>=0.15.0",
     "sympy>=1.14.0",
     "trackpy>=0.7",
-    "umap-learn>=0.5.12",
+    "umap-learn>=0.5.12", "napari-skimage>=0.7.3,<0.8",
 ]
 
 [tool.pixi.workspace]

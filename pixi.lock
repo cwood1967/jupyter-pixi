@@ -161,6 +161,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/06/bc/2509813cddd0e02736121e21bef54deeec7f0f89af2c6096d753ee1feb09/napari_plugin_engine-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/d6/003d5dbd8dce9b2452b0af83c1ed418f95e841753834a078e63a7f4ea594/napari_plugin_manager-0.1.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/7c/adfefa9b43da78d44decf5ce3cabefdfaa56008275e7e5b896a009824c46/napari_resources-1.0.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/db/7c/beff397c3bff18c6ee9bad23f027fa62c801ed543ad35c7418d97b301b27/napari_tiff-0.1.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl
@@ -456,6 +457,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/06/bc/2509813cddd0e02736121e21bef54deeec7f0f89af2c6096d753ee1feb09/napari_plugin_engine-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/d6/003d5dbd8dce9b2452b0af83c1ed418f95e841753834a078e63a7f4ea594/napari_plugin_manager-0.1.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/7c/adfefa9b43da78d44decf5ce3cabefdfaa56008275e7e5b896a009824c46/napari_resources-1.0.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/db/7c/beff397c3bff18c6ee9bad23f027fa62c801ed543ad35c7418d97b301b27/napari_tiff-0.1.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl
@@ -748,6 +750,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/06/bc/2509813cddd0e02736121e21bef54deeec7f0f89af2c6096d753ee1feb09/napari_plugin_engine-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/d6/003d5dbd8dce9b2452b0af83c1ed418f95e841753834a078e63a7f4ea594/napari_plugin_manager-0.1.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/7c/adfefa9b43da78d44decf5ce3cabefdfaa56008275e7e5b896a009824c46/napari_resources-1.0.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/db/7c/beff397c3bff18c6ee9bad23f027fa62c801ed543ad35c7418d97b301b27/napari_tiff-0.1.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl
@@ -1026,6 +1029,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/06/bc/2509813cddd0e02736121e21bef54deeec7f0f89af2c6096d753ee1feb09/napari_plugin_engine-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/d6/003d5dbd8dce9b2452b0af83c1ed418f95e841753834a078e63a7f4ea594/napari_plugin_manager-0.1.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/7c/adfefa9b43da78d44decf5ce3cabefdfaa56008275e7e5b896a009824c46/napari_resources-1.0.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/db/7c/beff397c3bff18c6ee9bad23f027fa62c801ed543ad35c7418d97b301b27/napari_tiff-0.1.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl
@@ -1305,6 +1309,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/06/bc/2509813cddd0e02736121e21bef54deeec7f0f89af2c6096d753ee1feb09/napari_plugin_engine-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a0/d6/003d5dbd8dce9b2452b0af83c1ed418f95e841753834a078e63a7f4ea594/napari_plugin_manager-0.1.12-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cf/7c/adfefa9b43da78d44decf5ce3cabefdfaa56008275e7e5b896a009824c46/napari_resources-1.0.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/db/7c/beff397c3bff18c6ee9bad23f027fa62c801ed543ad35c7418d97b301b27/napari_tiff-0.1.6-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl
@@ -4637,6 +4642,22 @@ packages:
   - click ; extra == 'cli'
   - fonttools ; extra == 'font'
   requires_python: '>=3.11'
+- pypi: https://files.pythonhosted.org/packages/bb/fa/0209493733bdc7efa78260c2de01fcdb2c41a0210bae94b9aff146cfd7f0/napari_skimage-0.7.3-py3-none-any.whl
+  name: napari-skimage
+  version: 0.7.3
+  sha256: 5679d307c0cc3b2ccc115d5cdd9d89f5539002571febb7f64050e1ed9de50694
+  requires_dist:
+  - numpy
+  - magicgui
+  - qtpy
+  - scikit-image
+  - tox ; extra == 'testing'
+  - pytest ; extra == 'testing'
+  - pytest-cov ; extra == 'testing'
+  - pytest-qt ; extra == 'testing'
+  - napari ; extra == 'testing'
+  - pyqt6 ; extra == 'testing'
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/d0/ae/0eeb22806c4157a9199f65a93374e5ff5c4d2cc1411b5d25053bcd9e6b91/napari_svg-0.2.1-py3-none-any.whl
   name: napari-svg
   version: 0.2.1
