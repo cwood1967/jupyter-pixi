@@ -3,8 +3,8 @@ setlocal
 
 REM CPU-only torch. For an NVIDIA GPU use launch_jupyter_cuda.bat instead.
 set "PIXI_ENV=default"
-set "TARGET_DIR=%USERPROFILE%\Desktop\jupyter-env"
-set "GIT_SOURCE=https://github.com/cwood1967/jupyter-env.git"
+set "TARGET_DIR=%USERPROFILE%\Desktop\jupyter-pixi"
+set "GIT_SOURCE=https://github.com/cwood1967/jupyter-pixi.git"
 
 REM Detached envs go in the user's home (C:\Users\<user>\pixi-envs), not the
 REM Desktop checkout. The package cache still follows PIXI_CACHE_DIR if set.
@@ -25,7 +25,7 @@ if not "%PIXI_EXE%"=="pixi" if not exist "%PIXI_EXE%" (
 )
 
 if exist "%TARGET_DIR%\.git" (
-    echo Updating existing jupyter-env checkout...
+    echo Updating existing jupyter-pixi checkout...
     git -C "%TARGET_DIR%" fetch origin && git -C "%TARGET_DIR%" reset --hard origin/main
 ) else (
     if exist "%TARGET_DIR%" (

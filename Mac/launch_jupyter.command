@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-GIT_SOURCE="https://github.com/cwood1967/jupyter-env.git" # or "napari[all]" + --with-requirements for Option B
-TARGET_DIR="$HOME/Desktop/jupyter-env"
+GIT_SOURCE="https://github.com/cwood1967/jupyter-pixi.git" # or "napari[all]" + --with-requirements for Option B
+TARGET_DIR="$HOME/Desktop/jupyter-pixi"
 
 export PATH="$HOME/.pixi/bin:$PATH"
 if ! command -v pixi >/dev/null 2>&1; then
